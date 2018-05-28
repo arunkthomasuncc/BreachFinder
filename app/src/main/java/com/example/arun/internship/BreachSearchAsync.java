@@ -50,7 +50,7 @@ public class BreachSearchAsync extends AsyncTask<String,Void,ArrayList<BreachedA
     protected ArrayList<BreachedAccount> doInBackground(String... strings) {
 
         String url="https://haveibeenpwned.com/api/v2/breachedaccount/";
-        String account=strings[0];
+        String account=strings[0].trim();
         String finalURL=url+account;
         Request request = new Request.Builder()
                 .url(finalURL)
@@ -58,46 +58,16 @@ public class BreachSearchAsync extends AsyncTask<String,Void,ArrayList<BreachedA
         Response response = null;
         try {
             response = okHttpClient.newCall(request).execute();
-            String result=response.body().string();
-            try {
-                JSONArray jsonArray= new JSONArray(result);
-                for(int i=0;i<jsonArray.length();i++)
-                {
-                    JSONObject accountObj= jsonArray.getJSONObject(i);
-                    BreachedAccount baccount= new BreachedAccount();
-                    baccount.setTitle(accountObj.getString("Title"));
-                    baccount.setBreachdate(accountObj.getString("BreachDate"));
-                    baccount.setDescription(accountObj.getString("Description"));
-                    JSONArray dataclassesArray= accountObj.getJSONArray("DataClasses");
-                    String dataClasses="";
-                    for(int j=0;j<dataclassesArray.length();j++)
-                    {
-                        if(j==0)
-                            dataClasses=dataClasses+dataclassesArray.getString(j);
-                        else
-                            dataClasses=dataClasses+","+dataclassesArray.getString(j);
-
-                    }
-                    baccount.setDataclasses(dataClasses);
-                    breachDataList.add(baccount);
-                }
-
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
+           String result=response.body().string();
+           breachDataList=BreachResponseParserUtil.responseParser(result);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
-
-
         return breachDataList;
 
     }
-
-
     public  interface IBreachAccount
     {
         void setBreachedAccounts(ArrayList<BreachedAccount> breachedAccounts);
