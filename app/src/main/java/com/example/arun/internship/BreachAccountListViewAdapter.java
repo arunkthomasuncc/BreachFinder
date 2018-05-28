@@ -51,11 +51,13 @@ public class BreachAccountListViewAdapter extends ArrayAdapter<BreachedAccount> 
         TextView dateView = (TextView) convertView.findViewById(R.id.textViewBreachedDateResult);
         TextView descriptionView = (TextView) convertView.findViewById(R.id.textViewDescriptionResult);
         TextView dataclassView = (TextView) convertView.findViewById(R.id.textViewDataClassesResult);
+        TextView domainView=(TextView) convertView.findViewById(R.id.textViewDomainResult);
 
         titleView.setText(breachedAccounts.get(position).getTitle());
         dateView.setText(breachedAccounts.get(position).getBreachdate());
         descriptionView.setText(breachedAccounts.get(position).getDescription());
         dataclassView.setText(breachedAccounts.get(position).getDataclasses());
+        domainView.setText(breachedAccounts.get(position).getDomain());
         return convertView;
 
 

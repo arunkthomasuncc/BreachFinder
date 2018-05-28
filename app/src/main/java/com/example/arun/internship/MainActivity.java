@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements BreachSearchAsync
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Breach Finder");
         final EditText searchkeyword= (EditText)findViewById(R.id.editTextEmail);
         Button searchButton =(Button)findViewById(R.id.buttonSearch);
         searchButton.setOnClickListener(new View.OnClickListener() {

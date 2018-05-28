@@ -7,6 +7,16 @@ package com.example.arun.internship;
 public class BreachedAccount {
 
     private String title;
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
+    private String domain;
     private String breachdate;
     private String description;
     private String dataclasses;

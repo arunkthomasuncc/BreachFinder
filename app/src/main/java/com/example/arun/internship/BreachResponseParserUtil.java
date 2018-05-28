@@ -24,6 +24,7 @@ public class BreachResponseParserUtil {
                 baccount.setTitle(accountObj.getString("Title"));
                 baccount.setBreachdate(accountObj.getString("BreachDate"));
                 baccount.setDescription(accountObj.getString("Description"));
+                baccount.setDomain(accountObj.getString("Domain"));
                 JSONArray dataclassesArray= accountObj.getJSONArray("DataClasses");
                 String dataClasses="";
                 for(int j=0;j<dataclassesArray.length();j++)
