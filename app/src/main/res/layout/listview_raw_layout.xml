@@ -79,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewDataClasses"
+        android:layout_below="@+id/textViewDataClassesResult"
         android:text="Description:"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -90,5 +90,6 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textViewDataClassesResult"
         android:layout_below="@+id/textViewDataClassesResult"
-        android:singleLine="false" />
+        android:singleLine="false"
+        />
 </RelativeLayout>
