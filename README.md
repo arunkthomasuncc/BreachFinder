@@ -12,3 +12,4 @@ Future Enhancement:
 3. Provide a detail page for each breach items.
 4. Make listview more attractive by adding a cardview  or by using 3rd party libraries.
 5. Add layout support for different devices.
+6. Avoid the hardcoding of strings
